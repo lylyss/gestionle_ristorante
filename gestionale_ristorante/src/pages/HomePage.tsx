@@ -1,7 +1,7 @@
-import Hero from "../components/hero";
+import MyHero from "../components/MyHero";
 
 function home_pages() {
-  return <Hero />;
+  return <MyHero />;
 }
 
 export default home_pages;
