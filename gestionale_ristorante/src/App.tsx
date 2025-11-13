@@ -1,8 +1,8 @@
-import Hero from "./components/hero.tsx";
+import HomePage from "./pages/HomePage";
 import "./App.css";
 
 function App() {
-  return <Hero />;
+  return <HomePage />;
 }
 
 export default App;
