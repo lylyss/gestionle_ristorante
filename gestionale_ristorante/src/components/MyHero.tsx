@@ -13,7 +13,7 @@ function Hero() {
       <Container>
         <div className="fixed-bottom d-flex justify-content-center mb-5">
           <NavLink className="mb-5" to="/menupage">
-            <Button className="btn btn-secondary mb-5 fs-4">Scopri il menu</Button>
+            <Button className="btn btn-secondary mb-5 fs-1">Scopri il menu</Button>
           </NavLink>
         </div>
       </Container>

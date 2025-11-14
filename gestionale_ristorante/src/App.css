@@ -13,3 +13,20 @@ body {
   height: 100vh;
   opacity: 0.8;
 }
+
+.mynav-navcontainer {
+  min-width: 0;
+}
+
+.mynav-nav {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.mynav-list {
+  list-style: none;
+}
+
+.mynav-li {
+  min-width: 100px;
+}
