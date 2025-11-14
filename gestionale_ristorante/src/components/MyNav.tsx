@@ -4,7 +4,7 @@ function MyNav() {
   return (
     <Navbar expand="xl" className="py-4 px-5 fixed-top text-nowrap" bg="dark" data-bs-theme="dark">
       <Navbar.Brand href="/" className="mb-3 fs-2 fw-bold d-flex justify-content-center w-100">
-        Bistrot
+        Bistrot Ristorante
       </Navbar.Brand>
       <div className="flex-grow-1 d-flex align-items-center" style={{ minWidth: 0 }}>
         <nav
