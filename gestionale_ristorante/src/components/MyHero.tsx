@@ -7,8 +7,8 @@ import "../App.css";
 function Hero() {
   return (
     <>
-      <section className="text-border hero-background text-white d-flex flex-column justify-content-center align-items-center">
-        <h1 className="display-2 text-center">Benvenuti al Bistrot</h1>
+      <section className="hero-background d-flex flex-column justify-content-center align-items-center">
+        <h1 className="display-1 text-center text-light">Benvenuti al Bistrot</h1>
       </section>
       <Container>
         <div className="fixed-bottom d-flex justify-content-center mb-5">
