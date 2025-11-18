@@ -20,7 +20,6 @@ public class Menu {
 
     public Menu(List<Pietanza> pietanze) {
         this.pietanze = pietanze;
-        // assegno il riferimento inverso
         this.pietanze.forEach(p -> p.setMenu(this));
     }
 
