@@ -1,7 +1,8 @@
 package gestione.ristorante.Gestionale.exceptions;
 
-import alessandro.digiovanni.demo.payloads.ErrorsDTO;
-import alessandro.digiovanni.demo.payloads.ErrorsWithListDTO;
+
+import gestione.ristorante.Gestionale.payloads.ErrorsDTO;
+import gestione.ristorante.Gestionale.payloads.ErrorsWithListDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
