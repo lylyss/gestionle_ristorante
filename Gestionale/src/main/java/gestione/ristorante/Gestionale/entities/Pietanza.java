@@ -9,37 +9,43 @@ import java.util.Set;
 @Entity
 @Table(name = "pietanze")
 public class Pietanza {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
+
     private BigDecimal prezzo;
+
     private String descrizione;
-    private String fotopietanza;
-    @ManyToMany(mappedBy = "pietanze")
-    private Set<Ordine> ordini = new HashSet<>();
 
-    public Pietanza() {
-    }
+    private String foto;
 
-    public Pietanza(String nome, String fotopietanza, BigDecimal prezzo, String descrizione) {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "menu_id")
+    private Menu menu;
+
+    public Pietanza() {}
+
+    public Pietanza(String nome, String foto, BigDecimal prezzo, String descrizione, Menu menu) {
         this.nome = nome;
-        this.fotopietanza = fotopietanza;
+        this.foto = foto;
         this.prezzo = prezzo;
         this.descrizione = descrizione;
+        this.menu = menu;
     }
 
     public Long getId() {
         return id;
     }
 
-
     public String getFotopietanza() {
-        return fotopietanza;
+        return foto;
     }
 
     public void setFotopietanza(String fotopietanza) {
-        this.fotopietanza = fotopietanza;
+        this.foto = fotopietanza;
     }
 
     public String getDescrizione() {
@@ -64,5 +70,13 @@ public class Pietanza {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
     }
 }
