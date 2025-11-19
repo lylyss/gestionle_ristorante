@@ -1,5 +1,6 @@
 package gestione.ristorante.Gestionale.entities;
 
+import gestione.ristorante.Gestionale.enums.TipoPietanza;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 
@@ -15,19 +16,21 @@ public class Pietanza {
     private BigDecimal prezzo;
     private String descrizione;
     private String foto;
+    private TipoPietanza tipoPietanza;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "menu_id")
     private MenuRestaurant menu;
 
     public Pietanza() {}
 
-    public Pietanza(String nome, String foto, BigDecimal prezzo, String descrizione, MenuRestaurant menu) {
+    public Pietanza(String nome, String foto, BigDecimal prezzo, String descrizione, MenuRestaurant menu, TipoPietanza tipoPietanza) {
         this.nome = nome;
         this.foto = foto;
         this.prezzo = prezzo;
         this.descrizione = descrizione;
         this.menu = menu;
+        this.tipoPietanza = tipoPietanza;
     }
 
 
@@ -47,4 +50,12 @@ public class Pietanza {
 
     public MenuRestaurant getMenu() { return menu; }
     public void setMenu(MenuRestaurant menu) { this.menu = menu; }
+
+    public TipoPietanza getTipoPietanza() {
+        return tipoPietanza;
+    }
+
+    public void setTipoPietanza(TipoPietanza tipoPietanza) {
+        this.tipoPietanza = tipoPietanza;
+    }
 }

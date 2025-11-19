@@ -1,5 +1,6 @@
 package gestione.ristorante.Gestionale.payloads;
 
+import gestione.ristorante.Gestionale.enums.TipoPietanza;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -22,7 +23,6 @@ public record PietanzaRequestDTO(
 
         @NotBlank(message = "La foto della pietanza è obbligatoria")
         String foto,
-
-        @NotNull(message = "L'id del menù è obbligatorio")
-        Long menuId
+        Long menuId ,
+        TipoPietanza tipoPietanza
 ) {}
