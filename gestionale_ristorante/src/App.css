@@ -43,6 +43,4 @@ body {
 
 .product-card:hover {
   cursor: pointer;
-  transform: scale(1.04);
-  transition: transform 0.2s ease-in-out;
 }
