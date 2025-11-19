@@ -38,7 +38,9 @@ function MyNav() {
           </nav>
           <NavLink to="/cart" className="cart-icon text-white text-decoration-none ps-5 ms-5">
             <i className="bi bi-cart-fill fs-4"></i>
-            <Badge bg="danger" pill className="position-absolute top-10 start-90 translate-middle "></Badge>
+            <Badge bg="secondary" pill className="position-absolute top-10 start-90 translate-middle ">
+              0
+            </Badge>
           </NavLink>
         </div>
       </div>
