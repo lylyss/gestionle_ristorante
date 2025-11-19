@@ -1,4 +1,5 @@
-import { Navbar } from "react-bootstrap";
+import { Badge, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 function MyNav() {
   return (
@@ -12,7 +13,7 @@ function MyNav() {
         <Navbar.Brand href="/" className="mb-4 fs-2 fw-bold d-flex justify-content-center align-items-center">
           Bistrot Ristorante
         </Navbar.Brand>
-        <div className="flex-grow-1 d-flex align-items-center mynav-navcontainer">
+        <div className="d-flex align-items-center mynav-navcontainer">
           <nav className="overflow-auto mynav-nav">
             <ul className="d-flex gap-3 mb-1 mynav-list">
               <li className="mynav-li">
@@ -35,6 +36,10 @@ function MyNav() {
               </li>
             </ul>
           </nav>
+          <NavLink to="/cart" className="cart-icon text-white text-decoration-none ps-5 ms-5">
+            <i className="bi bi-cart-fill fs-4"></i>
+            <Badge bg="danger" pill className="position-absolute top-10 start-90 translate-middle "></Badge>
+          </NavLink>
         </div>
       </div>
     </Navbar>
