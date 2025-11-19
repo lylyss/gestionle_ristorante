@@ -7,9 +7,11 @@ function SingleProduct() {
         <img className="w-100" style={{ height: "190px", objectFit: "contain" }} alt="immagine" />
         <p className="text-truncate"></p>
         <p></p>
-        <Button variant="secondary" className="w-100 rounded-2 border-0 text-white fw-bold">
-          Aggiungi al carrello
-        </Button>
+        <div className="d-flex justify-content-center">
+          <Button variant="secondary" className="w-50 rounded-2 border-0 text-white fw-bold">
+            Aggiungi al carrello
+          </Button>
+        </div>
         {/* <Col key={data.id}>
         <Card className="product-card mb-2 mt-5 bg-light rounded-2 p-3 shadow border-0">
           <img
