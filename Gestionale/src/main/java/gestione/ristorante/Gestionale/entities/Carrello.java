@@ -1,28 +1,33 @@
 package gestione.ristorante.Gestionale.entities;
 
 import jakarta.persistence.*;
-
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "carrelli")
 public class Carrello {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany (mappedBy = "ordine", cascade = CascadeType.ALL)
-    private List<Ordine> ordini;
 
-    public Carrello() {
-    }
-    public Carrello(List<Ordine> ordini) {
+    @OneToMany(mappedBy = "carrello", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Ordine> ordini = new ArrayList<>();
+
+    @OneToOne(mappedBy = "carrello", cascade = CascadeType.ALL)
+    private Scontrino scontrino;
+
+    public Long getId() { return id; }
+
+    public List<Ordine> getOrdini() { return ordini; }
+    public void setOrdini(List<Ordine> ordini) {
         this.ordini = ordini;
+        for (Ordine o : ordini) {
+            o.setCarrello(this);
+        }
     }
-    public Long getId() {
-        return id;
-    }
-    public List<Ordine> getOrdini() {
-        return ordini;
-    }
-    public void setOrdini(List<Ordine> ordini) { this.ordini = ordini; }
+
+    public Scontrino getScontrino() { return scontrino; }
+    public void setScontrino(Scontrino scontrino) { this.scontrino = scontrino; }
 }

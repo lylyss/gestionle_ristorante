@@ -1,68 +1,50 @@
 package gestione.ristorante.Gestionale.entities;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "pietanze")
 public class Pietanza {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
     private BigDecimal prezzo;
     private String descrizione;
-    private String fotopietanza;
-    @ManyToMany(mappedBy = "pietanze")
-    private Set<Ordine> ordini = new HashSet<>();
+    private String foto;
 
-    public Pietanza() {
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "menu_id")
+    private MenuRestaurant menu;
 
-    public Pietanza(String nome, String fotopietanza, BigDecimal prezzo, String descrizione) {
+    public Pietanza() {}
+
+    public Pietanza(String nome, String foto, BigDecimal prezzo, String descrizione, MenuRestaurant menu) {
         this.nome = nome;
-        this.fotopietanza = fotopietanza;
+        this.foto = foto;
         this.prezzo = prezzo;
         this.descrizione = descrizione;
-    }
-
-    public Long getId() {
-        return id;
+        this.menu = menu;
     }
 
 
-    public String getFotopietanza() {
-        return fotopietanza;
-    }
+    public Long getId() { return id; }
 
-    public void setFotopietanza(String fotopietanza) {
-        this.fotopietanza = fotopietanza;
-    }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
-    public String getDescrizione() {
-        return descrizione;
-    }
+    public BigDecimal getPrezzo() { return prezzo; }
+    public void setPrezzo(BigDecimal prezzo) { this.prezzo = prezzo; }
 
-    public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
-    }
+    public String getDescrizione() { return descrizione; }
+    public void setDescrizione(String descrizione) { this.descrizione = descrizione; }
 
-    public BigDecimal getPrezzo() {
-        return prezzo;
-    }
+    public String getFoto() { return foto; }
+    public void setFoto(String foto) { this.foto = foto; }
 
-    public void setPrezzo(BigDecimal prezzo) {
-        this.prezzo = prezzo;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public MenuRestaurant getMenu() { return menu; }
+    public void setMenu(MenuRestaurant menu) { this.menu = menu; }
 }
