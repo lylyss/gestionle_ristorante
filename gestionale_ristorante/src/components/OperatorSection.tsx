@@ -9,17 +9,17 @@ const initialOperators: Operator[] = [
 ];
 
 const panelStyle = {
-  borderRadius: "26px",
-  border: "3px solid #0f1827",
-  background: "linear-gradient(180deg,#fdfdfd 0%,#b0b0b0 100%)",
+  borderRadius: "18px",
+  border: "2px solid #084883ff",
+  background: "linear-gradient(180deg, #132147ff 0%, #b9b9b9 100%)",
 };
 
 const avatarStyle = {
-  width: "160px",
-  height: "210px",
-  borderRadius: "30px",
-  border: "4px solid #2a2a2a",
-  background: "linear-gradient(180deg,#d7d7d7,#6b6b6b)",
+  width: "150px",
+  height: "190px",
+  borderRadius: "40px",
+  border: "3px solid #2c2c2c",
+  background: "linear-gradient(180deg,#c3c3c3,#7c7c7c)",
 };
 
 function OperatorSection() {
@@ -49,17 +49,14 @@ function OperatorSection() {
   };
 
   return (
-    <section className="p-4 w-100 bg-white bg-opacity-95 rounded-5">
-      <header
-        className="text-uppercase fw-bold border border-2 rounded-top-4 px-4 py-2 mb-4"
-        style={{ background: "#c2dbf7", borderColor: "#173a6d", letterSpacing: "0.15rem" }}
-      >
+    <section className="p-4 w-100" style={{ background: "rgba(29, 66, 66, 0.9)", borderRadius: "24px" }}>
+      <header className="text-uppercase fw-bold border px-4 py-2 mb-4" style={{ background: "#142433ff", borderColor: "#1c4a7d", letterSpacing: "0.2rem" }}>
         GESTIONE OPERATORI
       </header>
 
       <div className="d-flex flex-column gap-4">
         {operators.map((op) => (
-          <div key={op.id} className="d-flex flex-column flex-lg-row gap-4" style={panelStyle}>
+          <div key={op.id} className="d-flex flex-column flex-lg-row gap-4 text-white" style={panelStyle}>
             <div className="d-flex flex-column align-items-center justify-content-center p-4">
               <div className="d-flex flex-column align-items-center justify-content-center" style={avatarStyle}>
                 <span style={{ fontSize: "4rem" }}>👤</span>
@@ -94,7 +91,7 @@ function OperatorSection() {
           </div>
         ))}
 
-        <div className="d-flex flex-column flex-lg-row gap-4 align-items-stretch" style={panelStyle}>
+        <div className="d-flex flex-column flex-lg-row gap-4 align-items-stretch text-white" style={panelStyle}>
           <div className="d-flex flex-column align-items-center justify-content-center p-4">
             <div className="d-flex align-items-center justify-content-center" style={{ ...avatarStyle, position: "relative" }}>
               <span style={{ fontSize: "4rem" }}>👤</span>
