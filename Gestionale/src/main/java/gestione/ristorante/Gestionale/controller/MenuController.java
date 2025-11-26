@@ -1,5 +1,7 @@
 package gestione.ristorante.Gestionale.controller;
 
+import gestione.ristorante.Gestionale.entities.MenuRestaurant;
+import gestione.ristorante.Gestionale.entities.Pietanza;
 import gestione.ristorante.Gestionale.payloads.MenuRequestDTO;
 import gestione.ristorante.Gestionale.payloads.MenuResponseDTO;
 import gestione.ristorante.Gestionale.services.MenuService;
@@ -47,5 +49,12 @@ public class MenuController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteMenu(@PathVariable Long id) {
         menuService.deleteMenu(id);
+    }
+
+    private MenuResponseDTO mapToDTO(MenuRestaurant menu) {
+        List<Long> ids = menu.getPietanze().stream()
+                .map(Pietanza::getId)
+                .toList();
+        return new MenuResponseDTO(menu.getId(), ids);
     }
 }

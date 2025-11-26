@@ -87,19 +87,12 @@ public class MenuService {
     }
 
     private MenuResponseDTO mapToDTO(MenuRestaurant menu) {
-        List<PietanzaResponseDTO> dtoPietanze = menu.getPietanze().stream()
-                .map(p -> new PietanzaResponseDTO(
-                        p.getId(),
-                        p.getNome(),
-                        p.getPrezzo(),
-                        p.getDescrizione(),
-                        p.getFoto(),
-                        menu.getId(),
-                        p.getTipoPietanza()// menuId
-                ))
+        List<Long> ids = menu.getPietanze() == null
+                ? List.of()
+                : menu.getPietanze().stream()
+                .map(Pietanza::getId)
                 .toList();
-
-        return new MenuResponseDTO(menu.getId(), dtoPietanze);
+        return new MenuResponseDTO(menu.getId(), ids);
     }
 
 

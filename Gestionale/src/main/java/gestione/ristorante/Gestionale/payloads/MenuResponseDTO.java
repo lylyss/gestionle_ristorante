@@ -4,5 +4,5 @@ import java.util.List;
 
 public record MenuResponseDTO(
         Long id,
-        List<PietanzaResponseDTO> pietanze
+        List<Long> pietanzeIds
 ) {}

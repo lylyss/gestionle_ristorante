@@ -1,10 +1,11 @@
 package gestione.ristorante.Gestionale.payloads;
 
-import jakarta.validation.constraints.NotEmpty;
+
 
 import java.util.List;
 
 public record MenuRequestDTO(
+        String nome,
         List<Long> pietanzeIds
 
 ) {}

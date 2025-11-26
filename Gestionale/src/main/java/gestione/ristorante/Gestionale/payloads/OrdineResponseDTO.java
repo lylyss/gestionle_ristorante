@@ -6,7 +6,7 @@ import java.util.Set;
 
 public record OrdineResponseDTO(
         Long id,
-        TavoloResponseDTO tavolo,
+        Long tavoloId,
         BigDecimal totale,
         LocalDateTime dataeora,
         Set<PietanzaResponseDTO> pietanze
