@@ -1,25 +1,11 @@
 import { Button } from "react-bootstrap";
-
-type NavItem = { key: string; label: string };
-
-const navItems: NavItem[] = [
-  { key: "operatori", label: "OPERATORI" },
-  { key: "grafici", label: "GRAFICI" },
-  { key: "gestione", label: "GESTIONE LOCALE" },
-];
+import { NAV_ITEMS } from "../Interfaces/backoffice";
+import type { SideBarBackofficeProps } from "../Interfaces/backoffice";
 
 const panelGradient = "linear-gradient(180deg, #d9d9d9, #a6a6a6, #7a7a7a)";
 const buttonGradient = "linear-gradient(90deg, #1b95c5ff, #3adfa869, #01a4b9ff)";
 
-type Props = {
-  username?: string;
-  activeItem?: string;
-  onSelect?: (key: string) => void;
-  onDisconnect?: () => void;
-  onAdminClick?: () => void;
-};
-
-function SideBarBackoffice({ username = "ADMIN_01", activeItem = "operatori", onSelect, onDisconnect, onAdminClick }: Props) {
+function SideBarBackoffice({ username = "ADMIN_01", activeItem = "operatori", onSelect, onDisconnect, onAdminClick }: SideBarBackofficeProps) {
   const handleAdminClick = () => {
     if (onAdminClick) return onAdminClick();
     onSelect?.("admin");
@@ -55,8 +41,13 @@ function SideBarBackoffice({ username = "ADMIN_01", activeItem = "operatori", on
         <button
           type="button"
           onClick={handleAdminClick}
-          className="w-100 d-flex flex-row align-items-center gap-3 p-3 border-0 bg-transparent"
-          style={{ cursor: "pointer", borderRadius: "12px", background: activeItem === "admin" ? buttonGradient : "transparent" }}
+          className="w-100 d-flex flex-row align-items-center gap-3 p-3 border-1
+           bg-transparent"
+          style={{
+            cursor: "pointer",
+            borderRadius: "12px",
+            background: activeItem === "admin" ? buttonGradient : "transparent",
+          }}
         >
           <div
             style={{
@@ -72,10 +63,12 @@ function SideBarBackoffice({ username = "ADMIN_01", activeItem = "operatori", on
           >
             👤
           </div>
-          <div className="flex-grow-1 text-center fw-bold">{username}</div>
+          <div style={{ background: panelGradient, borderRadius: "15px", padding: "17px" }} className="flex-grow-1 text-center fw-bold">
+            {username}
+          </div>
         </button>
 
-        {navItems.map((item) => (
+        {NAV_ITEMS.map((item) => (
           <button
             key={item.key}
             onClick={() => onSelect?.(item.key)}

@@ -1,12 +1,7 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-
-type Operator = { id: string; username: string; password: string };
-
-const initialOperators: Operator[] = [
-  { id: "operatore_01", username: "OPERATORE_01", password: "AKJ@DS784.!" },
-  { id: "operatore_02", username: "OPERATORE_02", password: "SD@GDS-@.!" },
-];
+import { DEFAULT_OPERATORS } from "../Interfaces/backoffice";
+import type { OperatorAccount, OperatorSectionProps } from "../Interfaces/backoffice";
 
 const panelStyle = {
   borderRadius: "18px",
@@ -22,11 +17,11 @@ const avatarStyle = {
   background: "linear-gradient(180deg,#c3c3c3,#7c7c7c)",
 };
 
-function OperatorSection() {
-  const [operators, setOperators] = useState(initialOperators);
-  const [newOperator, setNewOperator] = useState<Operator>({ id: "", username: "", password: "" });
+function OperatorSection({ initialOperators = DEFAULT_OPERATORS }: OperatorSectionProps) {
+  const [operators, setOperators] = useState<OperatorAccount[]>(initialOperators);
+  const [newOperator, setNewOperator] = useState<OperatorAccount>({ id: "", username: "", password: "" });
 
-  const handleOperatorChange = (id: string, key: keyof Operator, value: string) => {
+  const handleOperatorChange = (id: string, key: keyof OperatorAccount, value: string) => {
     setOperators((prev) => prev.map((op) => (op.id === id ? { ...op, [key]: value } : op)));
   };
 
@@ -36,7 +31,7 @@ function OperatorSection() {
     setOperators((prev) => prev.map((op) => (op.id === id ? updated : op)));
   };
 
-  const handleNewChange = (key: keyof Operator, value: string) => {
+  const handleNewChange = (key: keyof OperatorAccount, value: string) => {
     setNewOperator((prev) => ({ ...prev, [key]: value }));
   };
 
@@ -50,7 +45,10 @@ function OperatorSection() {
 
   return (
     <section className="p-4 w-100" style={{ background: "rgba(29, 66, 66, 0.9)", borderRadius: "24px" }}>
-      <header className="text-uppercase fw-bold border px-4 py-2 mb-4" style={{ background: "#142433ff", borderColor: "#1c4a7d", letterSpacing: "0.2rem" }}>
+      <header
+        className="text-uppercase fw-bold  px-4 py-2 mb-4"
+        style={{ background: "#0681f394", border: "2px solid #008c9eff", borderRadius: "24px", letterSpacing: "0.2rem" }}
+      >
         GESTIONE OPERATORI
       </header>
 
@@ -97,7 +95,15 @@ function OperatorSection() {
               <span style={{ fontSize: "4rem" }}>👤</span>
               <span
                 className="position-absolute text-dark fw-bold"
-                style={{ bottom: "18px", background: "#fff", borderRadius: "50%", width: "50px", height: "50px", lineHeight: "50px" }}
+                style={{
+                  bottom: "18px",
+                  background: "#2eeeeeff",
+                  borderRadius: "15px",
+                  width: "70px",
+                  height: "40px",
+                  lineHeight: "40px",
+                  textAlign: "center",
+                }}
               >
                 NEW
               </span>

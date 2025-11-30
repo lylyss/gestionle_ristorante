@@ -19,12 +19,7 @@ function Cart() {
                   >
                     <i className="bi bi-trash fs-4"></i>
                   </Button>
-                  <Card.Img
-                    className="d-inline-block ms-4 pe-5"
-                    style={{ maxWidth: "180px" }}
-                    src={item.immagine}
-                    alt="product"
-                  />
+                  <Card.Img className="d-inline-block ms-4 pe-5" style={{ maxWidth: "180px" }} src={item.immagine} alt="product" />
                   <Card.Text className="d-inline-block">{item.nome}</Card.Text>
                   <Card.Text className="d-inline-block ms-5">{item.prezzo}€</Card.Text>
                 </ListGroup.Item>

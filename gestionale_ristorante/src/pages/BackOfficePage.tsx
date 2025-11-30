@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { BackofficeNavKey } from "../Interfaces/backoffice";
 import AdminSection from "../components/AdminSection";
 import SideBarBackoffice from "../components/SideBarBackooffice";
 import backofficeBg from "../assets/media/bg_media/bar-counter.jpg";
@@ -13,7 +14,7 @@ const layoutStyles = {
 };
 
 function BackOfficePage() {
-  const [activeItem, setActiveItem] = useState("operatori");
+  const [activeItem, setActiveItem] = useState<BackofficeNavKey>("operatori");
 
   const handleAdminClick = () => setActiveItem("admin");
 

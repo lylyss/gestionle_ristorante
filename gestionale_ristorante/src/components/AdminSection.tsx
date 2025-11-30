@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-
-type AdminAccount = { username: string; password: string };
-
-type Props = {
-  initialAdmin?: AdminAccount;
-  onUpdateAdmin?: (updated: AdminAccount) => void;
-  onCreateAdmin?: (created: AdminAccount) => void;
-};
+import { type AdminAccount, type AdminSectionProps, DEFAULT_ADMIN_ACCOUNT } from "../Interfaces/backoffice";
 
 const panelBase = {
   borderRadius: "18px",
@@ -15,7 +8,7 @@ const panelBase = {
   background: "linear-gradient(180deg, #132147ff 0%, #b9b9b9 100%)",
 };
 
-function AdminSection({ initialAdmin = { username: "ADMIN_01", password: "AKJADDDS784.!" }, onUpdateAdmin, onCreateAdmin }: Props) {
+function AdminSection({ initialAdmin = DEFAULT_ADMIN_ACCOUNT, onUpdateAdmin, onCreateAdmin }: AdminSectionProps) {
   const [adminInfo, setAdminInfo] = useState<AdminAccount>(initialAdmin);
   const [editForm, setEditForm] = useState<AdminAccount>(initialAdmin);
   const [newAdminForm, setNewAdminForm] = useState<AdminAccount>({ username: "", password: "" });
@@ -42,7 +35,10 @@ function AdminSection({ initialAdmin = { username: "ADMIN_01", password: "AKJADD
 
   return (
     <section className="p-4 w-100" style={{ background: "rgba(29, 66, 66, 0.9)", borderRadius: "24px" }}>
-      <header className="text-uppercase fw-bold border px-4 py-2 mb-4" style={{ background: "#142433ff", borderColor: "#1c4a7d", letterSpacing: "0.2rem" }}>
+      <header
+        className="text-uppercase fw-bold  px-4 py-2 mb-4"
+        style={{ background: "#142433ff", borderColor: "#1c4a7d", border: "2px solid #008c9eff", borderRadius: "24px", letterSpacing: "0.2rem" }}
+      >
         DATI PERSONALI
       </header>
 
