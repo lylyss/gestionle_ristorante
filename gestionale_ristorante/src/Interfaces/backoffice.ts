@@ -34,6 +34,24 @@ export interface OperatorSectionProps {
   initialOperators?: OperatorAccount[];
 }
 
+export interface ChartDataset {
+  label: string;
+  data: number[];
+  backgroundColor?: string;
+  borderColor?: string;
+}
+
+export interface ChartDataResponse {
+  labels: string[];
+  datasets: ChartDataset[];
+}
+
+export interface FetchChartDataParams {
+  from?: string;
+  to?: string;
+  metric?: string;
+}
+
 export const NAV_ITEMS: NavItem[] = [
   { key: "operatori", label: "OPERATORI" },
   { key: "grafici", label: "GRAFICI" },

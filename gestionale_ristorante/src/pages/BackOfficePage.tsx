@@ -4,6 +4,7 @@ import AdminSection from "../components/AdminSection";
 import SideBarBackoffice from "../components/SideBarBackooffice";
 import backofficeBg from "../assets/media/bg_media/bar-counter.jpg";
 import OperatorSection from "../components/OperatorSection";
+import GraficiSection from "../components/GraficiSection";
 
 const layoutStyles = {
   minHeight: "100vh",
@@ -26,6 +27,8 @@ function BackOfficePage() {
           <OperatorSection />
         ) : activeItem === "admin" ? (
           <AdminSection />
+        ) : activeItem === "grafici" ? (
+          <GraficiSection />
         ) : (
           <div className="text-center mt-5">Seleziona una sezione dalla sidebar.</div>
         )}
