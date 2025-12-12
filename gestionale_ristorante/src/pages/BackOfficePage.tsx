@@ -5,6 +5,7 @@ import SideBarBackoffice from "../components/SideBarBackooffice";
 import backofficeBg from "../assets/media/bg_media/bar-counter.jpg";
 import OperatorSection from "../components/OperatorSection";
 import GraficiSection from "../components/GraficiSection";
+import GestioneLocaleSection from "../components/GestioneLocaleSection";
 
 const layoutStyles = {
   minHeight: "100vh",
@@ -27,6 +28,8 @@ function BackOfficePage() {
           <OperatorSection />
         ) : activeItem === "admin" ? (
           <AdminSection />
+        ) : activeItem === "gestioneLocale" ? (
+          <GestioneLocaleSection />
         ) : activeItem === "grafici" ? (
           <GraficiSection />
         ) : (

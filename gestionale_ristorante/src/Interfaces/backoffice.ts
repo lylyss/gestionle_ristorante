@@ -1,4 +1,4 @@
-export type BackofficeNavKey = "operatori" | "grafici" | "gestione" | "admin";
+export type BackofficeNavKey = "operatori" | "admin" | "grafici" | "gestioneLocale";
 
 export interface AdminAccount {
   username: string;
@@ -55,7 +55,7 @@ export interface FetchChartDataParams {
 export const NAV_ITEMS: NavItem[] = [
   { key: "operatori", label: "OPERATORI" },
   { key: "grafici", label: "GRAFICI" },
-  { key: "gestione", label: "GESTIONE LOCALE" },
+  { key: "gestioneLocale", label: "GESTIONE LOCALE" },
 ];
 
 export const DEFAULT_ADMIN_ACCOUNT: AdminAccount = {
